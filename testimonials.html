@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials | Client Stories</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Accessibility skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Header with navigation and high contrast toggle -->
+  <header>
+    <div class="nav">
+      <h1><span>Cami</span> Ramos Coaching</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="a11y-toggle" type="button" onclick="toggleContrast()">High contrast</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <h2 class="section-title">What clients say</h2>
+      <p class="section-sub">Names and details are softened to protect people in tricky workplaces. The themes are real.</p>
+
+      <div class="grid grid-3" style="margin-top: 1.6rem;">
+        <div class="testimonial">
+          <p>Working with Cami helped me see that my too much is actually how I create value. I went from apologising all the time to applying for roles that match my brain and got an offer that pays me fairly.</p>
+          <small>Programme manager, Latin America</small>
+        </div>
+
+        <div class="testimonial">
+          <p>For the first time a coach did not ignore racism and power in the conversation. We planned my promotion talk with that in mind, and I finally got the title and pay that match my work.</p>
+          <small>Policy advisor, Europe</small>
+        </div>
+
+        <div class="testimonial">
+          <p>I used to think I had to be grateful and stay quiet. This process helped me name my strengths and decide where I want to be in three years, not just how to survive next month.</p>
+          <small>Engineer, Middle East and North Africa</small>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h3>How I measure success in coaching</h3>
+        <ul class="clean-list">
+          <li>You feel clearer about your strengths and how they already create value.</li>
+          <li>You feel more honest about your context and what is and is not possible right now.</li>
+          <li>You make at least one concrete move that shifts your position, even in a small way.</li>
+        </ul>
+        <p style="margin-top: 0.6rem;">If that is the kind of change you want, we can probably work well together.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Cami Ramos Coaching.</div>
+      <div>Coaching online and across regions. CliftonStrengths, DEI and social justice lens.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Apply stored contrast preference
+    function applyStoredContrastPreference() {
+      try {
+        var stored = localStorage.getItem("highContrast");
+        if (stored === "1") {
+          document.body.classList.add("high-contrast");
+        }
+      } catch (e) {
+        // ignore if localStorage not available
+      }
+    }
+    // Toggle contrast mode
+    function toggleContrast() {
+      document.body.classList.toggle("high-contrast");
+      try {
+        var value = document.body.classList.contains("high-contrast") ? "1" : "0";
+        localStorage.setItem("highContrast", value);
+      } catch (e) {
+        // ignore
+      }
+    }
+    applyStoredContrastPreference();
+  </script>
+</body>
+</html>
